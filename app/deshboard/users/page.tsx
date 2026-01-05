@@ -1,8 +1,11 @@
+import UserManagement from '@/components/deshboard/UserManageMent'
 import React from 'react'
 
 const UsersPage = () => {
   return (
-    <div>UsersPage</div>
+    <div>
+      <UserManagement />
+    </div>
   )
 }
 

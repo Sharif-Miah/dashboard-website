@@ -15,14 +15,15 @@ const orders = [
 
 export function RecentOrders() {
   return (
-    <Card className="mt-8">
-      <CardHeader className="flex flex-row items-center justify-between">
+    <Card className="mt-8 px-6">
+      <CardHeader className="flex flex-row items-center justify-between ">
         <CardTitle>Recent Orders</CardTitle>
-        <Button variant="outline" className="bg-[#C88069] text-white hover:bg-[#b06e59]">View All Orders</Button>
+        <Button variant="outline" className="bg-[#C88069] text-white hover:bg-[#b06e59]
+        hover:text-white cursor-pointer">View All Orders</Button>
       </CardHeader>
-      <Table>
-        <TableHeader className="bg-orange-50">
-          <TableRow>
+      <Table className="">
+        <TableHeader className="bg-orange-50 ">
+          <TableRow className=" ">
             <TableHead>Order ID</TableHead>
             <TableHead>Customer</TableHead>
             <TableHead>Payment Status</TableHead>
@@ -31,15 +32,15 @@ export function RecentOrders() {
             <TableHead>Amount</TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody>
+        <TableBody className="py-14">
           {orders.map((order) => (
             <TableRow key={order.id}>
-              <TableCell className="font-medium">{order.id}</TableCell>
-              <TableCell>{order.customer}</TableCell>
-              <TableCell><Badge variant="outline" className="bg-green-100 text-green-700 border-none">Paid</Badge></TableCell>
-              <TableCell><Badge className="bg-green-100 text-green-700 border-none">Delivered</Badge></TableCell>
-              <TableCell>{order.date}</TableCell>
-              <TableCell>{order.amount}</TableCell>
+              <TableCell className="font-medium py-7 text-lg">{order.id}</TableCell>
+              <TableCell className="text-lg">{order.customer}</TableCell>
+              <TableCell className=""><Badge variant="outline" className="bg-green-100 text-green-700 border-none text-md font-bold">Paid</Badge></TableCell>
+              <TableCell className="text-lg"><Badge className="bg-green-100 text-green-700 border-none text-sm">Delivered</Badge></TableCell>
+              <TableCell className="text-lg">{order.date}</TableCell>
+              <TableCell className="text-lg">{order.amount}</TableCell>
             </TableRow>
           ))}
         </TableBody>

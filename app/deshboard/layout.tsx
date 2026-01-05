@@ -1,18 +1,21 @@
 import { LayoutDashboard, ScrollText, Users, Box, ShoppingCart, Image as ImageIcon, Megaphone, CreditCard, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
-const navItems = [
-  { icon: LayoutDashboard, label: "Overview", active: true },
-  { icon: ScrollText, label: "Quiz" },
-  { icon: Users, label: "Users" },
-  { icon: Box, label: "Products" },
-  { icon: ShoppingCart, label: "Orders" },
-  { icon: ImageIcon, label: "Media" },
-  { icon: Megaphone, label: "Ad Management" },
-  { icon: CreditCard, label: "Plan Management" },
+export const navItems = [
+  { icon: LayoutDashboard, label: "Overview", href: "/deshboard", active: true },
+  { icon: ScrollText, label: "Quiz", href: "/deshboard/quiz" },
+  { icon: Users, label: "Users", href: "/deshboard/users" },
+  { icon: Box, label: "Products", href: "/deshboard/products" },
+  { icon: ShoppingCart, label: "Orders", href: "/deshboard/orders" },
+  { icon: ImageIcon, label: "Media", href: "/deshboard/media" },
+  { icon: Megaphone, label: "Ad Management", href: "/deshboard/ads" },
+  { icon: CreditCard, label: "Plan Management", href: "/deshboard/plans" },
 ];
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+
+  
   return (
     <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar */}
@@ -22,14 +25,21 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </div>
         <nav className="px-4 space-y-1">
           {navItems.map((item) => (
+            <Link
+            key={item.label}
+            href={item.href}>
             <Button
-              key={item.label}
+              
+
               variant={item.active ? "secondary" : "ghost"}
               className={`w-full justify-start gap-3 py-8 text-lg ${item.active ? "bg-[#C88069] text-white hover:bg-[#b06e59] cursor-pointer" : "text-gray-500 cursor-pointer"}`}
             >
-              <item.icon className="h-5 w-5" />
-              {item.label}
+              
+                <item.icon className="h-5 w-5" />
+                {item.label}
+
             </Button>
+              </Link>
           ))}
         </nav>
       </aside>
